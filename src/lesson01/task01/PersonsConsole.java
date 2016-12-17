@@ -1,5 +1,6 @@
 package lesson01.task01;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -18,7 +19,7 @@ public class PersonsConsole {
         persons = new ArrayList<>();
     }
 
-    public void start() {
+    public void start() throws IOException {
         int choice = 0;
         do {
             menu();
@@ -31,6 +32,12 @@ public class PersonsConsole {
                 }
                 case 2 : {
                     printAllPersons();
+                    break;
+                }
+                case 3 : {
+                    File file = new File(getStringParam("Введите путь:"));
+                    if (!file.exists()) file.createNewFile();
+                    savePersonsToDataFile(file);
                     break;
                 }
             }
@@ -53,6 +60,19 @@ public class PersonsConsole {
     private void printAllPersons() {
         for (Person person : persons) {
             System.out.println(person);
+        }
+    }
+
+    private void savePersonsToDataFile(File data) {
+        try (ObjectOutputStream oos =
+                     new ObjectOutputStream(
+                             new FileOutputStream(data))) {
+            oos.writeObject(persons);
+            oos.flush();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
