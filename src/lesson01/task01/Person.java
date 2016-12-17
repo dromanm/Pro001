@@ -1,7 +1,6 @@
 package lesson01.task01;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by IEvgen Boldyr on 17.12.16.
@@ -31,5 +30,14 @@ public class Person implements Serializable {
     }
     public String getDateOfBirth() {
         return dateOfBirth;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Имя: " + name + " Фамилия : " + surname
+                     + "\nДата рождения: " + dateOfBirth
+                     + "\nВозраст :" + age);
+        return builder.toString();
     }
 }

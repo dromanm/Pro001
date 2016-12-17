@@ -29,12 +29,17 @@ public class PersonsConsole {
                     persons.add(person);
                     break;
                 }
+                case 2 : {
+                    printAllPersons();
+                    break;
+                }
             }
         } while (choice != 5);
     }
 
     private void menu() {
-        System.out.println("Меню: \n1. Зарегистрировать нового человека.\n");
+        System.out.println("Меню: \n1. Зарегистрировать нового человека." +
+                                 "\n2. Вывести список зарегистрированых людей.");
     }
 
     private Person registPerson() {
@@ -43,6 +48,12 @@ public class PersonsConsole {
         String date    = getStringParam("Введите дату рождения:");
         Integer age    = getIntegerParam("Введите возраст:");
         return new Person(name, surname, age, date);
+    }
+
+    private void printAllPersons() {
+        for (Person person : persons) {
+            System.out.println(person);
+        }
     }
 
     private String getStringParam(String text) {
