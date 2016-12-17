@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Created by IEvgen Boldyr on 17.12.16.
+ * Created by IEvgen Boldyr on 17.12.2016.
  */
 
 public class PersonsConsole {
