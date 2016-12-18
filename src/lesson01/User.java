@@ -21,6 +21,7 @@ public class User {
         if (obj == null) return false;
         if (this == obj) return true;
         if (getClass() == obj.getClass()) {
+//        if (obj instanceof User) {
             User usr = (User) obj;
 
             if (!usr.login.equals(login)) return false;
