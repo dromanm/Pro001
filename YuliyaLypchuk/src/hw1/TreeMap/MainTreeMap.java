@@ -41,6 +41,7 @@ public class MainTreeMap {
         System.out.println("Contains: " + tree.contains(1).toString());
         System.out.println("Contains: " + tree.contains(8).toString());
         System.out.println("Find: " + tree.find(6));
+        System.out.println("Find: " + tree.find(34));
         System.out.println("Get: " + tree.get(13));
     }
 }
