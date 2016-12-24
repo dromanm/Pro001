@@ -1,7 +1,7 @@
 package homework01;
 
 /**
- * Created by Никита on 24.12.2016.fff
+ * Created by Никита on 24.12.2016.ffff
  */
 public class Test {
 
