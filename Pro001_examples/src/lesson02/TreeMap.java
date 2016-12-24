@@ -46,13 +46,13 @@ public class TreeMap<K extends Comparable, V> {
     }
 
     private boolean findPosition(Node<K, V> root, Node<K, V> nd) {
+        if (root == null) return false;
+        nd.parent = root;
         if (nd.key.compareTo(root.key) < 0 & root.left == null) {
             root.left = nd;
-            nd.parent = root;
             return true;
         } else if (nd.key.compareTo(root.key) > 0 & root.right == null) {
             root.right = nd;
-            nd.parent = root;
             return true;
         } else if (nd.key.compareTo(root.key) < 0) {
             return findPosition(root.left,nd);
