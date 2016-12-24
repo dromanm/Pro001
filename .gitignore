@@ -6,3 +6,4 @@ build.xml
 manifest.mf
 *.iml
 *.jar
+*.properties
