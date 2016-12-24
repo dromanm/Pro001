@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BohdanKoreniak/BohdanKoreniak.iml" filepath="$PROJECT_DIR$/BohdanKoreniak/BohdanKoreniak.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DmitryPustovoy/DmitryPustovoy.iml" filepath="$PROJECT_DIR$/DmitryPustovoy/DmitryPustovoy.iml" />
       <module fileurl="file://$PROJECT_DIR$/EugeneSiderka/EugeneSiderka.iml" filepath="$PROJECT_DIR$/EugeneSiderka/EugeneSiderka.iml" />
       <module fileurl="file://$PROJECT_DIR$/GeorgeRubliov/GeorgeRubliov.iml" filepath="$PROJECT_DIR$/GeorgeRubliov/GeorgeRubliov.iml" />
       <module fileurl="file://$PROJECT_DIR$/NikitaBeregulya/NikitaBeregulya.iml" filepath="$PROJECT_DIR$/NikitaBeregulya/NikitaBeregulya.iml" />
