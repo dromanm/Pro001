@@ -1,4 +1,4 @@
-package lesson02.ex02;
+package hw02;
 
 import hw02.TreeMap;
 
