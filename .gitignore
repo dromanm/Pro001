@@ -4,3 +4,4 @@
 /.idea/
 build.xml
 manifest.mf
+*.iml
