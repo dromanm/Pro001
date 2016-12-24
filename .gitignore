@@ -1,9 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
 .gitignore
 /nbproject/
-/.idea/
+.idea/
 build.xml
 manifest.mf
 *.iml
-*.properties
 *.jar
+*.properties
