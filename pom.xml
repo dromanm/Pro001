@@ -14,8 +14,11 @@
     <modules>
         <module>Pro001_examples</module>
         <module>GeorgeRubliov</module>
+        <module>EugeneSiderka</module>
         <module>VadymKovalchuk</module>
         <module>YuliyaLypchuk</module>
+        <module>anton_peshkov</module>
+        <module>AleksandrVyazovsky</module>
     </modules>
 
     <properties>
