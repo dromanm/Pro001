@@ -29,7 +29,10 @@ public class Main
         treeMap.add(16, "John");
         treeMap.add(20, "John");
 
+        System.out.println("All map nodes");
         System.out.println(treeMap.getNodes());
+
+        System.out.println("\nSet with keys which contains 'John' values");
         System.out.println(treeMap.contains("John"));
     }
 }
