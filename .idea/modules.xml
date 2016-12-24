@@ -3,12 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BohdanKoreniak/BohdanKoreniak.iml" filepath="$PROJECT_DIR$/BohdanKoreniak/BohdanKoreniak.iml" />
-      <module fileurl="file://$PROJECT_DIR$/VadymKovalchuk/VadymKovalchuk.iml" filepath="$PROJECT_DIR$/VadymKovalchuk/VadymKovalchuk.iml" />
       <module fileurl="file://$PROJECT_DIR$/EugeneSiderka/EugeneSiderka.iml" filepath="$PROJECT_DIR$/EugeneSiderka/EugeneSiderka.iml" />
       <module fileurl="file://$PROJECT_DIR$/GeorgeRubliov/GeorgeRubliov.iml" filepath="$PROJECT_DIR$/GeorgeRubliov/GeorgeRubliov.iml" />
       <module fileurl="file://$PROJECT_DIR$/NikitaBeregulya/NikitaBeregulya.iml" filepath="$PROJECT_DIR$/NikitaBeregulya/NikitaBeregulya.iml" />
       <module fileurl="file://$PROJECT_DIR$/Pro001.iml" filepath="$PROJECT_DIR$/Pro001.iml" />
       <module fileurl="file://$PROJECT_DIR$/Pro001_examples/Pro001_examples.iml" filepath="$PROJECT_DIR$/Pro001_examples/Pro001_examples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VadymKovalchuk/VadymKovalchuk.iml" filepath="$PROJECT_DIR$/VadymKovalchuk/VadymKovalchuk.iml" />
       <module fileurl="file://$PROJECT_DIR$/YuliyaLypchuk/YuliyaLypchuk.iml" filepath="$PROJECT_DIR$/YuliyaLypchuk/YuliyaLypchuk.iml" />
       <module fileurl="file://$PROJECT_DIR$/anton_peshkov/anton_peshkov.iml" filepath="$PROJECT_DIR$/anton_peshkov/anton_peshkov.iml" />
     </modules>
