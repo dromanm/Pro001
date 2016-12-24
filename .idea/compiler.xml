@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="AleksandrVyazovsky" />
         <module name="anton_peshkov" />
         <module name="GeorgeRubliov" />
         <module name="Pro001_examples" />
@@ -13,12 +14,12 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="anton_peshkov" target="1.5" />
-      <module name="GeorgeRubliov" target="1.5" />
-      <module name="Pro001" target="1.5" />
-      <module name="Pro001_examples" target="1.5" />
-      <module name="VadymKovalchuk" target="1.8" />
-      <module name="YuliyaLypchuk" target="1.5" />
+      <module name="AleksandrVyazovsky" target="1.8" />
+      <module name="anton_peshkov" target="1.8" />
+      <module name="GeorgeRubliov" target="1.8" />
+      <module name="Pro001" target="1.8" />
+      <module name="Pro001_examples" target="1.8" />
+      <module name="YuliyaLypchuk" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
