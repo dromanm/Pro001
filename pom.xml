@@ -13,7 +13,7 @@
 
     <modules>
         <module>Pro001_examples</module>
-
+        <module>GeorgeRubliov</module>
     </modules>
 
     <properties>
