@@ -10,6 +10,7 @@ public class CalcCPU {
     public static Integer first;
     public static Integer second;
     public static String operation;
+    public static String result;
 
     private CalcCPU() {}
 
@@ -18,8 +19,12 @@ public class CalcCPU {
         first  = scanExp.nextInt();
         operation = scanExp.next();
         second = scanExp.nextInt();
+        result = expression;
     }
 
+    public static String result() {
+        return result + " " + Integer.toString(calc(first, operation, second));
+    }
 
     public static Integer calc(Integer first,
                             String operation,
