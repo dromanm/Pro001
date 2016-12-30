@@ -1,11 +1,30 @@
 package lesson04.calculator;
 
+import java.util.Scanner;
+
 /**
  * Created by IEvgen Boldyr on 25.12.16.
  */
 public class CalcCPU {
 
+    public static Integer first;
+    public static Integer second;
+    public static String operation;
+    public static String result;
+
     private CalcCPU() {}
+
+    public static void parse(String expression) {
+        Scanner scanExp = new Scanner(expression);
+        first  = scanExp.nextInt();
+        operation = scanExp.next();
+        second = scanExp.nextInt();
+        result = expression;
+    }
+
+    public static String result() {
+        return result + " " + Integer.toString(calc(first, operation, second));
+    }
 
     public static Integer calc(Integer first,
                             String operation,
