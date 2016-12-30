@@ -1,4 +1,4 @@
-package hw1.lesson1.task2.managers;
+package w2.lesson4.task1.calculator.model.managers;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -43,20 +43,6 @@ public class ConsoleManager
         {
             printText("Enter correct data");
             return readInt();
-        }
-    }
-
-    public static LocalDate readDate()
-    {
-        printText("Enter date in format 'dd.mm.yy'");
-        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
-        try
-        {
-            return LocalDate.parse(readString(), formatter);
-        }
-        catch (DateTimeParseException e)
-        {
-            return readDate();
         }
     }
 }
