@@ -26,9 +26,11 @@ public class CalculatorView
         ConsoleManager.printText("Enter expression as showed in example below and press 'Enter' to calculate or enter 'exit' to exit program");
         ConsoleManager.printText("13 + 56 =");
         ConsoleManager.printText("Your expression:");
+    }
 
+    public void enterExpression()
+    {
         controller.getModel().setExpression(ConsoleManager.readString());
-
         ConsoleManager.printText("");
     }
 

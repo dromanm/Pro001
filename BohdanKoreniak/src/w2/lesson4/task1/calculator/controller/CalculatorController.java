@@ -37,7 +37,7 @@ public class CalculatorController
         model.setNumResult(CalcCPU.calc(model.getNumFirst(), model.getNumSecond(), OperationType.DIVISION));
     }
 
-    public void calculateExpression()
+    public void parseExpression()
     {
         String expression = model.getExpression();
         expression = expression.replaceAll(" ", "");
@@ -52,7 +52,12 @@ public class CalculatorController
         model.setNumFirst(Integer.parseInt(numbers[0]));
         model.setNumSecond(Integer.parseInt(numbers[1]));
 
-        switch (expression.replaceAll("[\\d\\=]", ""))
+        model.setOperationSign(expression.replaceAll("[\\d\\=]", ""));
+    }
+
+    public void calculateResult()
+    {
+        switch (model.getOperationSign())
         {
             case "+":
             {
@@ -82,6 +87,7 @@ public class CalculatorController
         while (true)
         {
             view.showMenu();
+            view.enterExpression();
 
             if (model.getExpression().equals("exit"))
             {
@@ -90,7 +96,9 @@ public class CalculatorController
 
             try
             {
-                calculateExpression();
+                parseExpression();
+                calculateResult();
+
                 view.showCalculationResult();
             }
             catch (IllegalArgumentException e)

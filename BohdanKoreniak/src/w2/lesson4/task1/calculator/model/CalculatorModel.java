@@ -9,6 +9,8 @@ public class CalculatorModel
     private Integer numSecond;
     private Integer numResult;
 
+    private String operationSign;
+
     private String expression;
 
     public Integer getNumFirst() {
@@ -41,5 +43,13 @@ public class CalculatorModel
 
     public void setExpression(String expression) {
         this.expression = expression;
+    }
+
+    public String getOperationSign() {
+        return operationSign;
+    }
+
+    public void setOperationSign(String operationSign) {
+        this.operationSign = operationSign;
     }
 }
