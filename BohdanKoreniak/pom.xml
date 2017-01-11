@@ -10,5 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>BohdanKoreniak</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+    </dependencies>
 
 </project>
