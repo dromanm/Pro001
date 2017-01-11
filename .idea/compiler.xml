@@ -7,7 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="anton_peshkov" />
-        <module name="BohdanKoreniak" />
         <module name="EugeneSiderka" />
         <module name="GeorgeRubliov" />
         <module name="IevgenVorobei" />
