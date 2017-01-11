@@ -1,5 +1,7 @@
 package lesson04.calculator;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -14,23 +16,42 @@ public class CalcCPU {
 
     public static void parse(String expression) {
         Scanner scanner = new Scanner(expression);
-        leftOperand = scanner.nextInt();
-        operation = scanner.next();
-        rightOperand = scanner.nextInt();
+        CalcCPU.leftOperand = scanner.nextInt();
+        CalcCPU.operation = scanner.next();
+        CalcCPU.rightOperand = scanner.nextInt();
+
+        if (!Arrays.asList("+", "-", "*", "/").contains(CalcCPU.operation)) {
+            CalcCPU.leftOperand = CalcCPU.rightOperand = null;
+            CalcCPU.operation = null;
+        }
     }
 
-    public static Integer calc(Integer leftOperand, String operation, Integer rightOperand) {
-        switch (operation) {
-            case "+":
-                return leftOperand + rightOperand;
-            case "-":
-                return leftOperand - rightOperand;
-            case "*":
-                return leftOperand * rightOperand;
-            case "/":
-                return leftOperand / rightOperand;
+    public static Integer calc() {
+        if (CalcCPU.leftOperand == null || CalcCPU.rightOperand == null || CalcCPU.operation == null) {
+            return null;
         }
 
-        return null;
+        Integer result = null;
+
+        switch (CalcCPU.operation) {
+            case "+":
+                result = CalcCPU.leftOperand + CalcCPU.rightOperand;
+                break;
+            case "-":
+                result = CalcCPU.leftOperand - CalcCPU.rightOperand;
+                break;
+            case "*":
+                result = CalcCPU.leftOperand * CalcCPU.rightOperand;
+                break;
+            case "/":
+                if (CalcCPU.leftOperand != 0 && CalcCPU.rightOperand != 0) {
+                    result = (int)(CalcCPU.leftOperand / CalcCPU.rightOperand);
+                }
+
+//                return (int)Math.floor(CalcCPU.leftOperand / CalcCPU.rightOperand);
+                break;
+        }
+
+        return result;
     }
 }
