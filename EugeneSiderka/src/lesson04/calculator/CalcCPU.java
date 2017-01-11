@@ -19,7 +19,7 @@ public class CalcCPU {
         rightOperand = scanner.nextInt();
     }
 
-    public static Integer calc() {
+    public static Integer calc(Integer leftOperand, String operation, Integer rightOperand) {
         switch (operation) {
             case "+":
                 return leftOperand + rightOperand;
