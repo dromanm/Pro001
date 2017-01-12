@@ -1,0 +1,49 @@
+Задача 1. Пользователь.
+
+Написать модульные тесты для класса пользователь, на методы equals и hashCode.
+Поля класса пользователь:
+1. Логин
+2. Пароль
+3. Дата регистрации
+4. Рейтинг (вещественное число)
+5. Пол
+
+Класс задания hw2.hash.User
+
+
+Задача 2. Парковка
+Написать класс представляющий парковку. С методами:
+— int park(Car car) — поместить машину на парковку, возвращает номер паркоместа
+— Car leave(int placeNumber) — удалить машину с парковки по номеру парокместа, возвращает удаляемую машину
+Методы выбрасывают ислключения IndexOutOfBoundsException и ParkFullException
+
+Написать модульный тест на класс Parking.
+
+Классы задания:
+hw2.park.Parking
+hw2.park.Car
+
+Задача 3. Аутентификация
+Написать класс аутентификации пользователя по логину и паролю, с методами:
+— boolean authenticate() — ввод логина и пароля + проверка
+— boolean authenticate(String login, String pass)
+— add(String login, String pass)
+— remove(String login)
+
+Написать модульный тест.
+
+Класс задания hw2.authentication.Auth
+Класс теста hw2.authentication.AuthTest
+
+Задача 4. Частота слов
+Написать класс для вычисления частоты слов в тексте с методами:
+— String setTextFromConsole()
+— String setTextFromFile(String fileName)
+— String generateRandomText(int textLength)
+— Set<String> getWordsByFrequency(int frequency)
+— Set<String> getWordsByFrequencyLessThan(int frequency)
+— Set<String> getWordsByFrequencyMoreThan(int frequency)
+— void printAcs() — вывести все слова + частота по возрастанию частоты
+— void printDesc() — вывести все слова + частота по убыванию частоты
+
+Класс задания hw2.frequency.Freq
