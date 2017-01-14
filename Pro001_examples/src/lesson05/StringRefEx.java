@@ -9,11 +9,13 @@ import java.lang.reflect.Parameter;
  */
 public class StringRefEx {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalAccessException {
         User user = new User("login", "password");
-        reflectionInfo(user);
-
+        AbstarctUser abstarctUser = new AbstarctUser();
+        //reflectionInfo(user);
+        objEquals(user, abstarctUser);
         //stringInfo();
+        fields(user);
     }
 
     public static void stringInfo() {
@@ -50,12 +52,11 @@ public class StringRefEx {
             }
         }
         //Получение родительского класса
-        Class obj = Object.class;
         Class parent = object.getClass().getSuperclass();
-        do {
-            System.out.println("Parrent class: " + parent.getName());
+        while (parent != null) {
+            System.out.println("Parent class: " + parent.getName());
             parent = parent.getSuperclass();
-        } while (parent.getClass() != obj.getClass());
+        }
         //Получение списка реализуемых интерфейсов
         Class[] interfaces = object.getClass().getInterfaces();
         if (interfaces.length > 0) {
@@ -65,5 +66,42 @@ public class StringRefEx {
         }
 
         System.out.println("********** " + object.getClass().getName() + "**********");
+    }
+
+    public static void objEquals(Object first, Object second) {
+        Class[] firstInter = first.getClass().getInterfaces();
+        Class[] secondInter = second.getClass().getInterfaces();
+
+        if (firstInter.length > 0 & secondInter.length > 0) {
+            for (Class inter1 : firstInter) {
+                for (Class inter2 : secondInter) {
+                    if (inter1.getName().equals(inter2.getName())) {
+                        System.out.println("Interface : " + inter2.getName());
+                    }
+                }
+            }
+        }
+    }
+
+    //Изменение значения private поля с помощью рефлексии
+    public static void fields(Object obj) throws IllegalAccessException {
+        class SomeClass {
+            private String someStr = "private";
+
+            public String getSomeStr() {
+                return someStr;
+            }
+        }
+
+        SomeClass someClass = new SomeClass();
+
+        System.out.println(someClass.getSomeStr());
+        Field[] fields = someClass.getClass().getDeclaredFields();
+        for (Field field : fields) {
+            field.setAccessible(true);
+            field.set(someClass, new String("reflect"));
+            field.setAccessible(false);
+        }
+        System.out.println(someClass.getSomeStr());
     }
 }
