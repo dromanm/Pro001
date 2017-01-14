@@ -1,4 +1,4 @@
-package hw01;
+package hw1.console;
 
 
 import java.io.*;

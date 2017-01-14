@@ -1,4 +1,4 @@
-package hw02;
+package hw1.tree_map;
 
 import java.util.HashSet;
 import java.util.Set;

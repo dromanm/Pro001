@@ -1,6 +1,4 @@
-package hw02;
-
-import hw02.TreeMap;
+package hw1.tree_map;
 
 import java.util.ArrayList;
 
@@ -32,7 +30,7 @@ public class TreeMapVsOther {
 
         start = System.currentTimeMillis();
         for (int i = 0; i < 10_000; i++) {
-            treeMap.add(i, Integer.toString((int)(Math.random() * 1_000_000)));
+            treeMapUtil.put(i, Integer.toString((int)(Math.random() * 1_000_000)));
 //            treeMapUtil.put((int)(Math.random() * 10_000), "a");
         }
         end = System.currentTimeMillis();
