@@ -1,9 +1,6 @@
 package hw2.frequency;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 /**
@@ -123,15 +120,26 @@ public class Freq {
         return set;
     }
 
-    public void printAcs() {
-
+    public void printAcs(boolean acsOrder) {
+        Set<Map.Entry<Integer, Set<String>>> entrySet;
+        if (acsOrder) {
+            entrySet = getMapOfFrequencies().entrySet();
+        } else {
+            entrySet = getMapOfFrequencies().descendingMap().entrySet();
+        }
+        StringBuilder sb = new StringBuilder();
+        for(Map.Entry<Integer, Set<String>> entry : entrySet) {
+            sb.append(entry.getKey()).append(":\t\t");
+            for (String s : entry.getValue()) {
+                sb.append(s).append(", ");
+            }
+            sb.deleteCharAt(sb.length()-2);
+            sb.append("\n");
+        }
+        System.out.println(sb);
     }
 
-    public void printDesc() {
-
-    }
-
-    public Map<Integer, Set<String>> getMapOfFrequencies() {
+    public TreeMap<Integer, Set<String>> getMapOfFrequencies() {
         Scanner scanner = new Scanner(text);
         Map<String, Integer> words = new HashMap<>();
         String word;
@@ -144,7 +152,7 @@ public class Freq {
                 words.put(word, 1);
             }
         }
-        Map<Integer, Set<String>> wordsByFrequencies = new TreeMap<>();
+        TreeMap<Integer, Set<String>> wordsByFrequencies = new TreeMap<>();
 
         for (Map.Entry<String, Integer> entry: words.entrySet()) {
             if (wordsByFrequencies.containsKey(entry.getValue())) {
