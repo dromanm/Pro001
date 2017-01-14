@@ -1,7 +1,5 @@
 package hw2.hash;
 
-import com.sun.istack.internal.NotNull;
-
 import java.time.LocalDate;
 import java.util.Arrays;
 
@@ -9,7 +7,7 @@ import java.util.Arrays;
  * Created by eriol4ik on 26/12/2016.
  */
 public class User {
-    @NotNull private String login;
+    private String login;
     private char[] password;
     private LocalDate signUpDate;
     private Double rating;
