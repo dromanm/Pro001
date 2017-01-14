@@ -1,4 +1,4 @@
-package hw02;
+package hw1.tree_map;
 
 /**
  * Created by eriol4ik on 18/12/2016.
