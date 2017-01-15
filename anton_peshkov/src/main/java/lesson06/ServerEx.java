@@ -5,46 +5,64 @@ import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
+import java.util.Scanner;
 
-/**
- * Created by admin on 15.01.17.
- */
-public class ServerEx {
-    public static void main(String[] args) {
-        ServerSocketChannel channel = null;
-        try {
-            channel = ServerSocketChannel.open();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            channel.bind(new InetSocketAddress(8089));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-        SocketChannel socket = null;
-        try {
-            socket = channel.accept();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+public class ServerEx implements Runnable {
+
+    String message;
+    ByteBuffer bufferSend;
+    SocketChannel socket;
+
+    public static void main(String[] args) throws IOException {
+        ServerEx serverEx = new ServerEx();
+
+        serverEx.methodStart();
+    }
+
+    private void methodStart() throws IOException {
+        ServerSocketChannel channel = ServerSocketChannel.open();
+        channel.bind(new InetSocketAddress(8089));
+
+        socket = channel.accept();
+
 
         ByteBuffer buffer = ByteBuffer.allocate(128);
+        bufferSend = ByteBuffer.allocate(128);
+
+        Thread thread = new Thread(this);
+        thread.start();
+
         int bytes = 0;
-        do{
+        do {
             try {
-                bytes = socket.read(buffer);
+            bytes = socket.read(buffer);
+        } catch(IOException ioe) {
+            break;
+        }
+            buffer.flip();
+            message = new String(buffer.array(), 0, bytes);
+            System.out.println(message);
+
+            buffer.clear();
+        } while (socket.isConnected());
+    }
+
+    @Override
+    public void run() {
+        while(true) {
+            Scanner scanner = new Scanner(System.in);
+            message = scanner.nextLine();
+            bufferSend.put(message.getBytes());
+            bufferSend.flip();
+            try {
+                socket.write(bufferSend);
             } catch (IOException e) {
                 e.printStackTrace();
-                System.out.println("tut");
-                break;
             }
-            buffer.flip();
-            if(bytes<=0)break;
-            String message = new String(buffer.array(),0 ,bytes);
-            System.out.println(message);
-            buffer.clear();
-        } while(socket.isConnected());
+
+            bufferSend.clear();
+        }
+
     }
 }
