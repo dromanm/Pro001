@@ -11,6 +11,7 @@
       <sourceFolder url="file://$MODULE_DIR$/../BackupPro001/testt" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/BohdanKoreniak/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BohdanKoreniak/test" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
