@@ -1,5 +1,9 @@
 package w3.task3;
 
+import w3.task3.character.Warrior;
+import w3.task3.character.Wizard;
+import w3.task3.creature.Tiger;
+
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -100,5 +104,11 @@ public class Main
 
         System.out.println("\n\nComparing ArrayList and LinkedList");
         main.comapareObjects(new ArrayList<>(), new LinkedList<>());
+
+        System.out.println("\n\nComparing Warrior and Tiger");
+        main.comapareObjects(new Warrior(), new Tiger());
+
+        System.out.println("\n\nComparing Warrior and Wizard");
+        main.comapareObjects(new Warrior(), new Wizard());
     }
 }
