@@ -31,7 +31,10 @@ public class LoadJDBC {
         try {
             connection =
                     DriverManager
-                            .getConnection(url,
+                            .getConnection(url
+                                            /*+ "?verifyServerCertificate=false"
+                                            + "&useSSL=true"
+                                            + "&requireSSL=true"*/,
                                     login, password);
         } catch (SQLException e) {
             System.out.println("Connection failed!");
