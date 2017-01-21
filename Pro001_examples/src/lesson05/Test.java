@@ -33,6 +33,7 @@ public class Test {
             for (Class cl2 : secondParents) {
                 if (cl1.getClass() == cl2.getClass()) {
                     System.out.println(cl1.getName());
+                    break;
                 }
             }
         }
