@@ -14,7 +14,7 @@ public class SyncClient {
     private static SocketChannel channel;
 
     public static void main(String[] args) throws IOException {
-        channel = SocketChannel.open(new InetSocketAddress("192.168.1.124", 30000));
+        channel = SocketChannel.open(new InetSocketAddress("192.168.1.103", 30000));
         ByteBuffer buffer = ByteBuffer.allocate(128);
         String message;
         Scanner scan = new Scanner(System.in);
