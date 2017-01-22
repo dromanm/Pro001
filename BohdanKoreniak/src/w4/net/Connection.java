@@ -4,7 +4,6 @@ import w4.net.message.Message;
 
 import java.io.*;
 import java.net.SocketAddress;
-import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 
 /**
@@ -13,49 +12,30 @@ import java.nio.channels.SocketChannel;
 public class Connection implements Closeable
 {
     private final SocketChannel socketChannel;
-    private ByteBuffer byteBuffer;
+    private final ObjectInputStream objectInputStream;
+    private final ObjectOutputStream objectOutputStream;
 
-    public Connection(SocketChannel socketChannel)
+    public Connection(SocketChannel socketChannel) throws IOException
     {
         this.socketChannel = socketChannel;
-        byteBuffer = ByteBuffer.allocate(128);
+        objectOutputStream = new ObjectOutputStream(socketChannel.socket().getOutputStream());
+        objectInputStream = new ObjectInputStream(socketChannel.socket().getInputStream());
     }
 
     public Message receiveMessage() throws IOException, ClassNotFoundException
     {
-        synchronized (socketChannel)
+        synchronized (objectInputStream)
         {
-            Message message;
-
-            try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream())
-            {
-                while (socketChannel.read(byteBuffer) > 0)
-                {
-                    byteBuffer.flip();
-                    socketChannel.read(byteBuffer);
-
-                    byteArrayOutputStream.write(byteBuffer.array());
-
-                    byteBuffer.clear();
-                }
-
-                message = bytesToMessage(byteArrayOutputStream.toByteArray());
-            }
-
-            return message;
+            return (Message) objectInputStream.readObject();
         }
     }
 
-    public void sendMesssage(Message message) throws IOException
+    public void sendMessage(Message message) throws IOException
     {
-        synchronized (socketChannel)
+        synchronized (objectOutputStream)
         {
-            byteBuffer.flip();
-            byteBuffer.put(messageToBytes(message));
-
-            socketChannel.write(byteBuffer);
-
-            byteBuffer.clear();
+            objectOutputStream.reset();
+            objectOutputStream.writeObject(message);
         }
     }
 
@@ -64,35 +44,11 @@ public class Connection implements Closeable
         return socketChannel.getRemoteAddress();
     }
 
-    private byte[] messageToBytes(Message message) throws IOException
-    {
-        try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream())
-        {
-            try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream))
-            {
-                objectOutputStream.writeObject(message);
-                objectOutputStream.flush();
-
-                return byteArrayOutputStream.toByteArray();
-            }
-        }
-    }
-
-    private Message bytesToMessage(byte[] bytes) throws IOException, ClassNotFoundException
-    {
-        try (ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes))
-        {
-            try (ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream))
-            {
-                return (Message) objectInputStream.readObject();
-            }
-        }
-    }
-
     @Override
     public void close() throws IOException
     {
-        byteBuffer.clear();
+        objectInputStream.close();
+        objectOutputStream.close();
         socketChannel.close();
     }
 }
