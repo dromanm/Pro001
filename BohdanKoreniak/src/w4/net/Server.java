@@ -8,15 +8,15 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by Bohdan on 15.01.2017.
  */
 public class Server
 {
-    private static Map<String, Connection> connectionMap = new HashMap<>();
+    private static Map<String, Connection> connectionMap = new ConcurrentHashMap<>();
 
     private static class ConnectionHandler extends Thread
     {
@@ -31,7 +31,7 @@ public class Server
         {
             while (true)
             {
-                connection.sendMesssage(new Message(MessageType.NAME_REQUEST));
+                connection.sendMessage(new Message(MessageType.NAME_REQUEST));
 
                 Message receivedMessage = connection.receiveMessage();
 
@@ -41,11 +41,11 @@ public class Server
                     {
                         String userName = receivedMessage.getTextData();
 
-                        if (!userName.isEmpty() && connectionMap.get(userName) != null)
+                        if (!userName.isEmpty() && connectionMap.get(userName) == null)
                         {
                             connectionMap.put(receivedMessage.getTextData(), connection);
+                            connection.sendMessage(new Message(MessageType.USER_ACCEPTED));
 
-                            connection.sendMesssage(new Message(MessageType.USER_ACCEPTED));
                             ConsoleManager.printText("Connection with " + userName + " established. Remote address is " + connection.getSocketAddress());
 
                             return receivedMessage.getTextData();
@@ -68,6 +68,11 @@ public class Server
                         sendBroadcastMessage(new Message(MessageType.TEXT, userName + ": " + receivedMessage.getTextData()));
                         break;
                     }
+                    default:
+                    {
+                        ConsoleManager.printText("Error");
+                        break;
+                    }
                 }
             }
         }
@@ -77,7 +82,9 @@ public class Server
         {
             try (Connection connection = new Connection(socketChannel))
             {
-                serverMainLoop(serverHandshake(connection), connection);
+                String userName = serverHandshake(connection);
+                sendBroadcastMessage(new Message(MessageType.USER_ADDED, userName));
+                serverMainLoop(userName, connection);
             }
             catch (IOException | ClassNotFoundException e)
             {
@@ -88,17 +95,17 @@ public class Server
 
     public static void sendBroadcastMessage(Message message)
     {
-        connectionMap.forEach((String key, Connection value) ->
+        for (Map.Entry<String, Connection> entry : connectionMap.entrySet())
         {
             try
             {
-                value.sendMesssage(message);
+                entry.getValue().sendMessage(message);
             }
             catch (IOException e)
             {
-                e.printStackTrace();
+                ConsoleManager.printText("Error while sending message");
             }
-        });
+        }
     }
 
     public static void main(String[] args)
@@ -112,11 +119,7 @@ public class Server
 
             while (true)
             {
-                SocketChannel socketChannel = serverSocketChannel.accept();
-
-                ConnectionHandler connectionHandler = new ConnectionHandler(socketChannel);
-
-                connectionHandler.start();
+                new ConnectionHandler(serverSocketChannel.accept()).start();
             }
         }
         catch (IOException e)
