@@ -35,6 +35,7 @@ public class Connection implements Closeable
         synchronized (objectOutputStream)
         {
             objectOutputStream.reset();
+            objectOutputStream.flush();
             objectOutputStream.writeObject(message);
         }
     }

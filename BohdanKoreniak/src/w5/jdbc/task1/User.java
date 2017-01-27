@@ -1,4 +1,4 @@
-package w5.jdbc;
+package w5.jdbc.task1;
 
 /**
  * Created by Bohdan on 21.01.2017.
@@ -45,5 +45,17 @@ public class User
     public String getSurname()
     {
         return surname;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
     }
 }

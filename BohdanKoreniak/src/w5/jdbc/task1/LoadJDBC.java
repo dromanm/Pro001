@@ -1,4 +1,4 @@
-package w5.jdbc;
+package w5.jdbc.task1;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

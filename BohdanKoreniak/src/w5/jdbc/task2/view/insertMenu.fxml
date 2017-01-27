@@ -1,0 +1,56 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane fx:id="gridPaneMain" alignment="CENTER" fx:controller="w5.jdbc.task2.controller.Controller" xmlns:fx="http://javafx.com/fxml/1">
+
+    <Label text="NAME">
+        <GridPane.rowIndex>0</GridPane.rowIndex>
+        <GridPane.columnIndex>0</GridPane.columnIndex>
+    </Label>
+    <Label text="SURNAME">
+        <GridPane.rowIndex>1</GridPane.rowIndex>
+        <GridPane.columnIndex>0</GridPane.columnIndex>
+    </Label>
+    <Label text="AGE">
+        <GridPane.rowIndex>2</GridPane.rowIndex>
+        <GridPane.columnIndex>0</GridPane.columnIndex>
+    </Label>
+    <Label text="EMAIL">
+        <GridPane.rowIndex>3</GridPane.rowIndex>
+        <GridPane.columnIndex>0</GridPane.columnIndex>
+    </Label>
+    <Label text="PHONE">
+        <GridPane.rowIndex>4</GridPane.rowIndex>
+        <GridPane.columnIndex>0</GridPane.columnIndex>
+    </Label>
+
+    <TextField fx:id="textFieldName">
+        <GridPane.rowIndex>0</GridPane.rowIndex>
+        <GridPane.columnIndex>1</GridPane.columnIndex>
+    </TextField>
+    <TextField fx:id="textFieldSurname">
+        <GridPane.rowIndex>1</GridPane.rowIndex>
+        <GridPane.columnIndex>1</GridPane.columnIndex>
+    </TextField>
+    <TextField fx:id="textFieldAge">
+        <GridPane.rowIndex>1</GridPane.rowIndex>
+        <GridPane.columnIndex>2</GridPane.columnIndex>
+    </TextField>
+    <TextField fx:id="textFieldEmail">
+        <GridPane.rowIndex>1</GridPane.rowIndex>
+        <GridPane.columnIndex>3</GridPane.columnIndex>
+    </TextField>
+    <TextField fx:id="textFieldPhone">
+        <GridPane.rowIndex>1</GridPane.rowIndex>
+        <GridPane.columnIndex>4</GridPane.columnIndex>
+    </TextField>
+
+    <Button fx:id="buttonAdd" text="Add entry">
+        <GridPane.rowIndex>5</GridPane.rowIndex>
+        <GridPane.columnIndex>0</GridPane.columnIndex>
+    </Button>
+
+    <Button fx:id="buttonBack" text="Add entry">
+        <GridPane.rowIndex>5</GridPane.rowIndex>
+        <GridPane.columnIndex>1</GridPane.columnIndex>
+    </Button>
+</GridPane>

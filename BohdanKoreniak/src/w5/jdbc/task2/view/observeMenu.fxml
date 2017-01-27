@@ -1,0 +1,18 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane fx:id="gridPaneMain" alignment="CENTER" fx:controller="w5.jdbc.task2.controller.Controller" xmlns:fx="http://javafx.com/fxml/1">
+    <TableView fx:id="tableViewContacts" minWidth="600">
+        <GridPane.columnIndex>0</GridPane.columnIndex>
+        <GridPane.columnSpan>2</GridPane.columnSpan>
+        <GridPane.rowIndex>0</GridPane.rowIndex>
+    </TableView>
+
+    <Button fx:id="buttonInsert" text="Insert" minWidth="300" minHeight="30" onAction="#onActionInsertButton">
+        <GridPane.columnIndex>0</GridPane.columnIndex>
+        <GridPane.rowIndex>1</GridPane.rowIndex>
+    </Button>
+    <Button fx:id="buttonExit" text="Exit" minWidth="300" minHeight="30" onAction="#onActionExitButton">
+        <GridPane.columnIndex>1</GridPane.columnIndex>
+        <GridPane.rowIndex>1</GridPane.rowIndex>
+    </Button>
+</GridPane>

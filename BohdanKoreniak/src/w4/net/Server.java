@@ -61,6 +61,8 @@ public class Server
             {
                 Message receivedMessage = connection.receiveMessage();
 
+                System.out.println(receivedMessage.getTextData());
+
                 switch (receivedMessage.getMessageType())
                 {
                     case TEXT:
