@@ -2,6 +2,7 @@ package lesson09_threads.thread_gui.controller;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 /**
@@ -11,16 +12,23 @@ import javafx.scene.control.Label;
 public class TimerController {
 
     private int counter;
+    private Thread thread;
 
     @FXML private Label lblTimer;
+    @FXML private Button btnStart;
+    @FXML private Button btnPause;
 
     @FXML
     public void onActionStartButton() {
-        Thread thread = new Thread(new Runnable() {
+        thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 counter = Integer.parseInt(lblTimer.getText());
-                while (counter < 100) {
+
+                btnStart.setDisable(true);
+                btnPause.setDisable(false);
+
+                while (!thread.isInterrupted()) {
                     try {
                         Thread.currentThread().sleep(1000);
                         Platform.runLater(new Runnable() {
@@ -29,14 +37,21 @@ public class TimerController {
                                 lblTimer.setText(Integer.toString(counter++));
                             }
                         });
-
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        Thread.currentThread().interrupt();
                     }
                 }
             }
         });
         thread.setDaemon(true);
         thread.start();
+    }
+
+    @FXML
+    public void onActionPauseButton() {
+        //Метод для приостановки выполнения потока
+        thread.interrupt();
+        btnStart.setDisable(false);
+        btnPause.setDisable(true);
     }
 }
