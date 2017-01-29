@@ -16,6 +16,13 @@ public class Contact {
     /*Для POJO являвляется обязательным*/
     public Contact() {}
 
+    public Contact(String name, String surname, String phone, String email) {
+        this.name = name;
+        this.surname = surname;
+        this.phone = phone;
+        this.email = email;
+    }
+
     public Long getId() {
         return id;
     }
@@ -45,5 +52,10 @@ public class Contact {
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return id + " " + name + " " + surname;
     }
 }
