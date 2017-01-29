@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+        PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+    package="hibernate.entity">
+    <class name="Contact" table="CONTACTS_BOOK">
+        <!-- Минимум для ключевого поля -->
+        <id name="id" type="java.lang.Long">
+            <column name="ID"/>
+            <generator class="increment"/>
+        </id>
+        <!-- Описание всех остальных столбцов-->
+        <property name="name" type="java.lang.String" length="25">
+            <column name="NAME" length="25"/>
+        </property>
+        <property name="surname" type="java.lang.String" length="40">
+            <column name="SURNAME" length="40"/>
+        </property>
+        <property name="phone" type="java.lang.String" length="15">
+            <column name="PHONE" length="15"/>
+        </property>
+        <property name="email" type="java.lang.String" length="40">
+            <column name="EMAIL" length="40"/>
+        </property>
+    </class>
+
+</hibernate-mapping>
