@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+ fx:controller="jdbcgraph.controller.JDBCGraphMainController">
+   <center>
+      <TableView fx:id="tblContacts" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="clnId" prefWidth="42.0" text="ID" />
+          <TableColumn fx:id="clnName" prefWidth="113.0" text="NAME" />
+            <TableColumn fx:id="clnSurname" prefWidth="137.0" text="SURNAME" />
+            <TableColumn fx:id="clnAge" prefWidth="38.0" text="AGE" />
+            <TableColumn fx:id="clnPhone" prefWidth="108.0" text="PHONE" />
+            <TableColumn fx:id="clnEmail" prefWidth="161.0" text="EMAIL" />
+        </columns>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </TableView>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="32.0" prefWidth="600.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnInsert" onAction="#onActionInsertButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" text="Insert" />
+            <Button fx:id="btnExit" onAction="#onActionExitButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="152.0" text="Exit" />
+         </children>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>
