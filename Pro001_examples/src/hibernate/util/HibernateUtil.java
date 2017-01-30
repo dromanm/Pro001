@@ -24,7 +24,7 @@ public class HibernateUtil {
         builder.applySettings(config.getProperties());
         registry = builder.build();
 
-        return config.configure().buildSessionFactory(registry);
+        return config.buildSessionFactory(registry);
     }
 
     public static SessionFactory getSessionFactory() {
