@@ -21,6 +21,14 @@ public class Controller
     @FXML
     public void initialize()
     {
+        for (Field field : Contact.class.getDeclaredFields())
+        {
+            TableColumn tableColumn = new TableColumn(field.getName());
+            tableColumn.setCellValueFactory(new PropertyValueFactory<>(field.getName()));
+
+            tableViewContacts.getColumns().add(tableColumn);
+        }
+
         refreshView();
     }
 
@@ -29,14 +37,6 @@ public class Controller
         tableViewContacts.getItems().clear();
 
         tableViewContacts.getItems().addAll(model.getAllContacts());
-
-        for (Field field : Contact.class.getDeclaredFields())
-        {
-            TableColumn tableColumn = new TableColumn(field.getName());
-            tableColumn.setCellValueFactory(new PropertyValueFactory<>(field.getName()));
-
-            tableViewContacts.getColumns().add(tableColumn);
-        }
     }
 
     @FXML

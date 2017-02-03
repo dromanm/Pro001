@@ -1,0 +1,88 @@
+
+Задача 1. Dao для ноутбуков
+Создать DAO для таблицы ноутбуки
+Таблица ноутбуки имеет следующую структуру
+(id, serial, vendor, model, manufacture date, price)
+domain
+hw6.notes.domain.Notebook
+dao
+hw6.notes.dao.NotebookDao
+Long create(Notebook ntb)
+Notebook read(Long ig)
+boolean update(Notebook ntb)
+boolean delete(Notebook ntb)
+List<Notebook> findAll()
+hw6.notes.dao.NotebookDaoImpl
+
+***********
+
+Задача 2. Заготовка спраочника
+Написать приложение для управления ноутбуками.
+Реализовать функции:
+- Добавить новый ноутбук
+- Показать список ноутбуков (включая порядковый номер id)
+domain
+hw6.notes.domain.Notebook
+dao
+hw6.notes.dao.NotebookDao
+Long create(Notebook notebook)
+Notebook read(Long ig)
+boolean update(Notebook notebook)
+boolean delete(Notebook notebook)
+List<Notebook> findAll()
+hw6.notes.dao.NotebookDaoImpl
+util
+hw6.notes.util.HibernateUtil
+service
+hw6.notes.service.NotebookService
+Long add(Notebook notebook)
+List<Notebook> findAll()
+hw6.notes.service.NotebookServiceImpl
+view
+hw6.notes.service.Menu
+main()
+
+***********
+
+Задача 3. Справочник ноутбуков
+Добавить в приложение ноутбуков следующие функции:
+- Удалить ноутбук по id
+- Изменить цену ноутбука по id
+- Изменить серийный номер и производителя по id
+domain
+hw6.notes.domain.Notebook
+dao
+hw6.notes.dao.NotebookDao
+Long create(Notebook notebook)
+Notebook read(Long ig)
+boolean update(Notebook notebook)
+boolean delete(Notebook notebook)
+List<Notebook> findAll()
+hw6.notes.dao.NotebookDaoImpl
+util
+hw6.notes.util.HibernateUtil
+service
+hw6.notes.service.NotebookService
+Long add(Notebook notebook)
+List<Notebook> findAll()
+void changePrice(Long id, double price)
+void changeSerialVendor(Long id, String serial, String vendor)
+boolean delete(Long id)
+hw6.notes.service.NotebookServiceImpl
+view
+hw6.notes.service.Menu
+main()
+void deleteNtb(Notebook notebook)
+void changePrice(Notebook notebook)
+void changeSerialVendor(Notebook notebook)
+
+*************
+
+Задача 4. Расширение справочника
+Добавить в приложение ноутбуков следующие функции:
+- Удалить ноутбуки по названию модели
+- Получить ноутбуки по производителю
+- Получить ноутбуки по цене и году выпуска
+- Получить ноутбуки по цене в указанном диапазоне, меньше указанной даты выпуска и указанного производителя
+domain
+hw6.notes.domain.Notebook
