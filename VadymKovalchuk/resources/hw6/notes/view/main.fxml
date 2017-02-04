@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -7,7 +10,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hw6.notes.view.controller.MainController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hw6.notes.view.controller.MainController">
    <center>
       <TableView fx:id="notesTable" prefHeight="480.0" prefWidth="640.0" BorderPane.alignment="CENTER">
         <columns>
@@ -30,24 +33,19 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Edit information">
             <items>
-              <MenuItem mnemonicParsing="false" text="Add..." onAction="#add" />
-                  <Menu mnemonicParsing="false" text="Delete..." >
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="by model" onAction="#deleteByModel"/>
-                        <MenuItem mnemonicParsing="false" text="by ID" onAction="#deleteById"/>
-                    </items>
-                  </Menu>
+              <MenuItem mnemonicParsing="false" onAction="#add" text="Add..." />
+                  <MenuItem mnemonicParsing="false" onAction="#delete" text="Delete..." />
                   <Menu mnemonicParsing="false" text="Change...">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="price by ID" onAction="#changePriceById"/>
-                        <MenuItem mnemonicParsing="false" text="serial &amp; vendor by ID" onAction="#changeSerialVendorById"/>
+                      <MenuItem mnemonicParsing="false" onAction="#changePriceById" text="price by ID" />
+                        <MenuItem mnemonicParsing="false" onAction="#changeSerialVendorById" text="serial &amp; vendor by ID" />
                     </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Find...">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="by vendor" onAction="#findByVendor"/>
-                        <MenuItem mnemonicParsing="false" text="by price &amp; manuf. date" onAction="#findByPriceDate"/>
-                        <MenuItem mnemonicParsing="false" text="by vendor, price range &amp; &lt; input date" onAction="#findByVendorPriceDate"/>
+                      <MenuItem mnemonicParsing="false" onAction="#findByVendor" text="by vendor" />
+                        <MenuItem mnemonicParsing="false" onAction="#findByPriceDate" text="by price &amp; manuf. date" />
+                        <MenuItem mnemonicParsing="false" onAction="#findByVendorPriceDate" text="by vendor, price range &amp; &lt; input date" />
                     </items>
                   </Menu>
             </items>

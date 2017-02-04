@@ -52,6 +52,11 @@ public class NotebookServiceImpl implements NotebookService {
     }
 
     @Override
+    public Notebook delete(Long id) {
+        return notebookDAO.delete(id);
+    }
+
+    @Override
     public List<Notebook> find(String vendor) {
         return notebookDAO.find(vendor);
     }

@@ -58,15 +58,11 @@ public class MainController {
     }
 
     @FXML
-    public void deleteByModel() throws IOException {
-        loadAndShowAndWait("/hw6/notes/view/edit/delete_by_model.fxml", "Delete by model");
+    public void delete() throws IOException {
+        loadAndShowAndWait("/hw6/notes/view/edit/delete.fxml", "Delete notebook(s)");
     }
 
-    @FXML
-    public void deleteById() {
-
-    }
-
+    // todo add these features below to menu
     @FXML
     public void changePriceById() {
 

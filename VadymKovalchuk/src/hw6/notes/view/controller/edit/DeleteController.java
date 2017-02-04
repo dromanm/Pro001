@@ -7,10 +7,7 @@ import hw6.notes.util.TableViewHelper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.sql.Date;
 import java.util.List;
@@ -18,7 +15,7 @@ import java.util.List;
 /**
  * Created by eriol4ik on 04/02/2017.
  */
-public class DeleteByModelController implements EditController {
+public class DeleteController implements EditController {
     @FXML private TableView<Notebook> notesTable;
           private ObservableList<Notebook> notes;
 
@@ -30,6 +27,10 @@ public class DeleteByModelController implements EditController {
     @FXML private TableColumn<Notebook, Double> price;
 
     @FXML private TextField modelField;
+    @FXML private TextField idField;
+    @FXML private RadioButton deleteByModel;
+    @FXML private RadioButton deleteById;
+    @FXML private ToggleGroup group1;
 
     @FXML private Button undo;
 
@@ -48,14 +49,31 @@ public class DeleteByModelController implements EditController {
 
     @FXML
     public void delete() {
-        String model = InputDataChecker.checkString(modelField);
-
-        if (model != null) {
-            List<Notebook> deletedNotebooks = service.delete(model);
-            notes.setAll(deletedNotebooks);
-            changed = true;
-            undo.setDisable(false);
+        List<Notebook> deletedNotebooks;
+        if (group1.getSelectedToggle() == deleteByModel) {
+            String model = InputDataChecker.checkString(modelField);
+            if (model != null) {
+                deletedNotebooks = service.delete(model);
+                if (deletedNotebooks != null && !deletedNotebooks.isEmpty()) {
+                    notes.addAll(deletedNotebooks);
+                    changed = true;
+                    undo.setDisable(false);
+                }
+            }
         }
+        if (group1.getSelectedToggle() == deleteById) {
+            Long id = InputDataChecker.checkLong(idField);
+            if (id != null) {
+                Notebook delNotebook = service.delete(id);
+                if (delNotebook != null) {
+                    notes.addAll(delNotebook);
+                    changed = true;
+                    undo.setDisable(false);
+                }
+            }
+        }
+
+
     }
 
     @FXML
@@ -64,8 +82,21 @@ public class DeleteByModelController implements EditController {
             for (Notebook notebook : notes) {
                 service.add(notebook);
             }
+            notes.clear();
             undo.setDisable(true);
         }
+    }
+
+    @FXML void selectModel() {
+        modelField.setDisable(false);
+        idField.setDisable(true);
+        idField.setStyle("-fx-border-color: inherit");
+    }
+
+    @FXML void selectId() {
+        idField.setDisable(false);
+        modelField.setDisable(true);
+        modelField.setStyle("-fx-border-color: inherit");
     }
 
     @Override

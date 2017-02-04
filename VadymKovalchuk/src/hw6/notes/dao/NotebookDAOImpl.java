@@ -109,6 +109,24 @@ public class NotebookDAOImpl implements NotebookDAO {
         }
     }
 
+    @Override
+    public Notebook delete(Long id) {
+        Session session = factory.openSession();
+        try {
+            session.beginTransaction();
+            Notebook notebook = (Notebook) session.get(Notebook.class, id);
+            if (notebook == null) return null;
+            session.delete(notebook);
+            session.getTransaction().commit();
+            return notebook;
+        } catch (HibernateException he) {
+            session.getTransaction().rollback();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
     @SuppressWarnings("unchecked")
     @Override
     public List<Notebook> find(String vendor) {

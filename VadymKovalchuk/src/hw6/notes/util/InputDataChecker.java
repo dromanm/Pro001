@@ -50,4 +50,23 @@ public class InputDataChecker {
         textField.setStyle("-fx-border-color: inherit");
         return num;
     }
+
+    public static Long checkLong(TextField textField) {
+        String text = textField.getText();
+        if (text.trim().isEmpty()) {
+            textField.setStyle("-fx-border-color: red");
+            return null;
+        }
+
+        Long num;
+        try {
+            num = Long.parseLong(text);
+        } catch (NumberFormatException nfe) {
+            textField.setStyle("-fx-border-color: red");
+            return null;
+        }
+
+        textField.setStyle("-fx-border-color: inherit");
+        return num;
+    }
 }

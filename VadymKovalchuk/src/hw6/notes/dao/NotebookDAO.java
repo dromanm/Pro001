@@ -21,6 +21,8 @@ public interface NotebookDAO {
 
     List<Notebook> delete(String model);
 
+    Notebook delete(Long id);
+
     List<Notebook> find(String vendor);
 
     List<Notebook> find(double price, int manufYear);
