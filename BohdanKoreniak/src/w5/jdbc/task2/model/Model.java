@@ -81,8 +81,6 @@ public class Model
             String query = "INSERT INTO CONTACTS (id, name, surname, age, email, phone) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
-
-
             preparedStatement.execute();
         }
         catch (SQLException e)
