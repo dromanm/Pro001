@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 /**
- * Created by IEvgen Boldyr on 04.02.17.
+ * Created by IEvgen Boldyr on 04.02.17. ***
  */
 public class AnnotationEx {
 
