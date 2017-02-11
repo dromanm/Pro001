@@ -22,7 +22,7 @@ public class Car {
     @Column(name = "COLOR")
     private String color;
 
-    @OneToMany
+    @OneToMany(mappedBy = "car", fetch = FetchType.LAZY)
     private Set<Driver> drivers;
 
     public Car() {}

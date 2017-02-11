@@ -31,5 +31,6 @@ public class ContactBook {
             System.out.println(con);
         }
 
+        HibernateUtil.getSessionFactory().close();
     }
 }

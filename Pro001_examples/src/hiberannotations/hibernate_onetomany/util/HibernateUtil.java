@@ -13,18 +13,11 @@ import org.hibernate.cfg.Configuration;
 public class HibernateUtil {
 
     private static final SessionFactory factory = build();
-    private static StandardServiceRegistry registry;
 
     private static SessionFactory build() {
         Configuration config = new Configuration();
         config.configure("hiberannotations/hibernate_onetomany/hibernate.cfg.xml");
-
-        StandardServiceRegistryBuilder builder =
-                new StandardServiceRegistryBuilder();
-        builder.applySettings(config.getProperties());
-        registry = builder.build();
-
-        return config.buildSessionFactory(registry);
+        return config.buildSessionFactory();
     }
 
     public static SessionFactory getSessionFactory() {

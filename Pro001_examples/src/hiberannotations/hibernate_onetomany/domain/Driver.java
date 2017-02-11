@@ -21,7 +21,7 @@ public class Driver {
     @Column(name = "SURNAME")
     private String surname;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
     private Car car;
 
     public Driver() {}
@@ -62,6 +62,11 @@ public class Driver {
 
     public void setCar(Car car) {
         this.car = car;
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + surname;
     }
 }
 

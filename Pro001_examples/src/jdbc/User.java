@@ -26,4 +26,12 @@ public class User {
     public String getPassword() {
         return password;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Логин:  " + login);
+        builder.append("\nПароль: " + password);
+        return builder.toString();
+    }
 }
