@@ -12,7 +12,7 @@ import java.util.Set;
 public class Car {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "car_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "car_seq")
     @SequenceGenerator(name = "car_seq", sequenceName = "car_id", allocationSize = 25)
     private Long id;
 

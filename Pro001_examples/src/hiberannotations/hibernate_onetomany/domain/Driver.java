@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class Driver {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "driver_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "driver_seq")
     @SequenceGenerator(name = "driver_seq", sequenceName = "driver_id", allocationSize = 10)
     private Long id;
 
