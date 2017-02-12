@@ -20,6 +20,9 @@ public class Employee {
     @Column(name = "NAME")
     private String name;
 
+    @Column(name = "AGE")
+    private Integer age;
+
     @Enumerated(EnumType.ORDINAL)
     private Gender gender;
 
@@ -29,8 +32,10 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String name, Gender gender, Position position) {
+    public Employee(String name, Integer age,
+                    Gender gender, Position position) {
         this.name = name;
+        this.age = age;
         this.gender = gender;
         this.position = position;
     }
@@ -51,6 +56,14 @@ public class Employee {
         this.name = name;
     }
 
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
     public Gender getGender() {
         return gender;
     }
@@ -65,5 +78,10 @@ public class Employee {
 
     public void setPosition(Position position) {
         this.position = position;
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + position;
     }
 }
