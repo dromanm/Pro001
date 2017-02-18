@@ -1,4 +1,4 @@
-package spring.ioc_practice;
+package spring.ioc_practice.xml;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

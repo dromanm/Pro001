@@ -1,4 +1,4 @@
-package spring.ioc_practice;
+package spring.ioc_practice.xml;
 
 /**
  * Created by IEvgen Boldyr on 18.02.17.
