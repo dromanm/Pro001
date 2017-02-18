@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="car" class="spring.ioc_practice.Car">
+        <constructor-arg name="model" value="Honda"/>
+    </bean>
+
+    <bean id="ivanov" class="spring.ioc_practice.Driver">
+        <constructor-arg name="name" value="Ivanov"/>
+        <constructor-arg name="surname" value="Ivan"/>
+    </bean>
+
+    <bean id="petrov" class="spring.ioc_practice.Driver">
+        <constructor-arg name="name" value="Petrov"/>
+        <constructor-arg name="surname" value="Petr"/>
+    </bean>
+
+    <!-- Привязка ссылки на другой bean-->
+    <bean id="vasyan" class="spring.ioc_practice.Driver">
+        <constructor-arg name="name" value="Vasyan"/>
+        <constructor-arg name="surname" value="Vasya"/>
+        <property name="car" ref="car"/>
+    </bean>
+</beans>
