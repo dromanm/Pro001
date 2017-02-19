@@ -6,7 +6,7 @@ import spring.ioc_hiber.entity.Car;
 import spring.ioc_hiber.service.CarService;
 
 /**
- * Created by IEvgen Boldyr on 19.02.17.
+ * Created by IEvgen Boldyr on 19.02.17.  ***
  */
 public class Test {
 
