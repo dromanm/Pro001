@@ -1,6 +1,7 @@
 package spring.ioc_hiber.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import spring.ioc_hiber.dao.CarDAO;
 import spring.ioc_hiber.entity.Car;
@@ -13,6 +14,7 @@ import spring.ioc_hiber.entity.Car;
 public class CarServiceImpl implements CarService {
 
     @Autowired
+    @Qualifier("ver2")
     private CarDAO dao;
 
     @Override
