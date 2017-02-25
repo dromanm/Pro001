@@ -4,22 +4,22 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="car" class="spring.ioc_practice.Car">
+    <bean id="car" class="spring.ioc_practice.xml.Car">
         <constructor-arg name="model" value="Honda"/>
     </bean>
 
-    <bean id="ivanov" class="spring.ioc_practice.Driver">
+    <bean id="ivanov" class="spring.ioc_practice.xml.Driver">
         <constructor-arg name="name" value="Ivanov"/>
         <constructor-arg name="surname" value="Ivan"/>
     </bean>
 
-    <bean id="petrov" class="spring.ioc_practice.Driver">
+    <bean id="petrov" class="spring.ioc_practice.xml.Driver">
         <constructor-arg name="name" value="Petrov"/>
         <constructor-arg name="surname" value="Petr"/>
     </bean>
 
     <!-- Привязка ссылки на другой bean-->
-    <bean id="vasyan" class="spring.ioc_practice.Driver">
+    <bean id="vasyan" class="spring.ioc_practice.xml.Driver">
         <constructor-arg name="name" value="Vasyan"/>
         <constructor-arg name="surname" value="Vasya"/>
         <property name="car" ref="car"/>

@@ -1,7 +1,6 @@
 package spring.ioc_practice.annotations.entity;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Created by IEvgen Boldyr on 18.02.17.

@@ -6,7 +6,7 @@
 
     <bean class="spring.ioc.springxml.Cat" id="murka">
         <constructor-arg name = "name" value="Murka"/>
-        <property name="voice" value="Daj pograt'!"/>
+        <property name="voice" value="Mmrrr!"/>
     </bean>
 
     <bean class="spring.ioc.springxml.Cat" id="barsik">

@@ -28,6 +28,8 @@ public class OneToManyEx {
         session.saveOrUpdate(driver1);
         session.saveOrUpdate(driver2);
         session.getTransaction().commit();
+
+        HibernateUtil.getSessionFactory().close();
     }
 
 }

@@ -14,7 +14,7 @@ public class SpringXml {
                 new ClassPathXmlApplicationContext(
                         new String[] {"spring/ioc/spring-config.xml"});
 
-        Cat cat = (Cat) context.getBean("murka");
+        Cat cat = context.getBean("murka", Cat.class);
         System.out.println("Cat name : " + cat.getName());
         System.out.println("Voice : " + cat.getVoice());
     }
