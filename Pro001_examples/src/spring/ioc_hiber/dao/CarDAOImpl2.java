@@ -3,6 +3,7 @@ package spring.ioc_hiber.dao;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import spring.ioc_hiber.entity.Car;
 
 /**
@@ -16,7 +17,8 @@ public class CarDAOImpl2 implements CarDAO {
     private SessionFactory factory;
 
     @Override
+    @Transactional
     public Long create(Car car) {
-        return null;
+        return (Long) factory.getCurrentSession().save(car);
     }
 }

@@ -14,7 +14,7 @@ import spring.ioc_hiber.entity.Car;
 public class CarServiceImpl implements CarService {
 
     @Autowired
-    @Qualifier("ver2")
+    @Qualifier("ver1")
     private CarDAO dao;
 
     @Override
