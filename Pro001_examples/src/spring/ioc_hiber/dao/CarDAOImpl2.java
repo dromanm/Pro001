@@ -10,7 +10,7 @@ import spring.ioc_hiber.entity.Car;
  * Created by IEvgen Boldyr on 19.02.17.
  */
 
-@Repository("ver1")
+@Repository
 public class CarDAOImpl2 implements CarDAO {
 
     @Autowired

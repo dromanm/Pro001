@@ -7,6 +7,7 @@
                            http://www.springframework.org/schema/context/spring-context.xsd">
 
     <import resource="data-config.xml"/>
+    <import resource="aspects.xml"/>
 
     <context:component-scan base-package="spring.ioc_hiber.dao"/>
     <context:component-scan base-package="spring.ioc_hiber.service"/>

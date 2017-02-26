@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="loggerCarDAO"
+          class="spring.ioc_hiber.logger.CarDAOLogger"/>
+
+    <!-- Конфигурация аспектов -->
+    <aop:config>
+        <aop:aspect id="logCarDAO" ref="loggerCarDAO">
+            <aop:pointcut id="createCarDAO"
+                  expression="execution(*
+                  spring.ioc_hiber.dao.CarDAOImpl2.create(..))"/>
+
+            <aop:before pointcut-ref="createCarDAO" method="beforeCreate"/>
+            <aop:after  pointcut-ref="createCarDAO" method="afterCreate"/>
+            <aop:after-returning  pointcut-ref="createCarDAO" method="afterReturningCreate"/>
+            <aop:after-throwing   pointcut-ref="createCarDAO" method="afterThrowingCreate"/>
+
+        </aop:aspect>
+    </aop:config>
+</beans>
