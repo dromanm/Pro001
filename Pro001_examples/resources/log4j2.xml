@@ -5,13 +5,18 @@
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout
-                    pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+                    pattern="%d{dd MMM yyyy HH:mm:ss,SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
     </Appenders>
 
     <Loggers>
         <Logger name="spring.ioc_hiber.logger.CarDAOLogger"
-                level="debug" additivity="true">
+                level="debug" additivity="false">
+            <AppenderRef ref="Console"></AppenderRef>
+        </Logger>
+
+        <Logger name="spring.ioc_hiber.logger.CarDAOLoggerAsp"
+                level="debug" additivity="false">
             <AppenderRef ref="Console"></AppenderRef>
         </Logger>
     </Loggers>
