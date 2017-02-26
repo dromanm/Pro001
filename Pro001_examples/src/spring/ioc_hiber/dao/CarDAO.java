@@ -9,4 +9,6 @@ public interface CarDAO {
 
     Long create(Car car);
 
+    Car read(Long id);
+
 }

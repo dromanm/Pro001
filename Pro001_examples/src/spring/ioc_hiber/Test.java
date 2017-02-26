@@ -20,6 +20,6 @@ public class Test {
         CarService service = context.getBean(CarService.class);
         service.create(new Car("AUDI", "BLACK"));
 
-
+        service.read(10L);
     }
 }

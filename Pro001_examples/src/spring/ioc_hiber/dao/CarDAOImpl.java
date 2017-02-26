@@ -30,4 +30,9 @@ public class CarDAOImpl implements CarDAO {
         }
         return null;
     }
+
+    @Override
+    public Car read(Long id) {
+        return null;
+    }
 }

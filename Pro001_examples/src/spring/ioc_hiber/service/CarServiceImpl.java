@@ -23,4 +23,9 @@ public class CarServiceImpl implements CarService {
         }
     }
 
+    @Override
+    public Car read(Long id) {
+        return dao.read(id);
+    }
+
 }

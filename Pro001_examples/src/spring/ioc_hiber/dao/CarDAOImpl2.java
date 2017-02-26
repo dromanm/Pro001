@@ -21,4 +21,10 @@ public class CarDAOImpl2 implements CarDAO {
     public Long create(Car car) {
         return (Long) factory.getCurrentSession().save(car);
     }
+
+    @Override
+    public Car read(Long id) {
+        return new Car("FORD", "WHITE");
+//        throw new RuntimeException();
+    }
 }
