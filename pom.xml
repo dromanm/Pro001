@@ -32,6 +32,7 @@
         <junit.version>4.12</junit.version>
         <org.mysql.version>5.1.40</org.mysql.version>
         <org.hibernate.version>5.0.2.Final</org.hibernate.version>
+        <org.aspectj.version>1.8.10</org.aspectj.version>
         <org.springframework.version>4.2.3.RELEASE</org.springframework.version>
     </properties>
 
@@ -96,6 +97,32 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
             <version>${org.springframework.version}</version>
+        </dependency>
+
+        <!-- Подключение аспектов Spring AOP-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+
+        <!-- AspectJ Framework -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${org.aspectj.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${org.aspectj.version}</version>
         </dependency>
 
         <!-- Логгирование событий -->
