@@ -14,7 +14,11 @@ public class HelloController {
     @RequestMapping(value = "/",
             method = {RequestMethod.GET, RequestMethod.HEAD})
     public String index() {
-        System.out.println("--->>>> CONTROLLLER INDEX <<<<---");
         return "index";
+    }
+
+    @RequestMapping(value = "/auth", method = RequestMethod.POST)
+    private String auth() {
+        return "dashboard";
     }
 }
